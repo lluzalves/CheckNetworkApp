@@ -8,6 +8,7 @@ import com.app.daniel.checknetworkapp.network.NetworkChecker
 import com.app.daniel.checknetworkapp.network.NetworkListener
 import com.app.daniel.checknetworkapp.view.AppDialog
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 abstract class BaseActivity : Activity() {
@@ -17,12 +18,14 @@ abstract class BaseActivity : Activity() {
         val result = StringBuilder()
         networkDialog.show()
         GlobalScope.launch {
+            delay(1000L)
             val networkListener = object : NetworkListener {
                 override fun hasConnectivity(isConnected: Boolean) {
                     if (isConnected) {
                         result.append(getString(R.string.connected_to_network))
                         InternetChecker(this).execute()
                     } else {
+                        networkDialog.dismiss()
                         result.append(getString(R.string.not_connected_to_network))
                         showToast(result.toString())
                     }
