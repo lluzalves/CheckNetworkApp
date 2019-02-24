@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CheckNetworkApp</string>
+    <string name="network_check">Checking network</string>
+    <string name="connected_to_network">Cool! you are connected to a network!</string>
+    <string name="not_connected_to_network">Oops, not connected to any network</string>
+    <string name="loading">Please wait ...</string>
+    <string name="connected_to_internet">  and it has internet connection</string>
+    <string name="not_connected_to_internet">  but unfortunately it has no internet connection</string>
+</resources>
